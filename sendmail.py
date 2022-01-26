@@ -1,8 +1,9 @@
+# SAR 2022.01.26 envia un mail . Pruebas de Configuracion de este tema
 import smtplib, ssl
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-#Modificado
+
 smtp_server = "tribilin.telnet.com.ar"
 port = 25  # For starttls
 sender_email = "facturacion@laboratoriosnova.com"
