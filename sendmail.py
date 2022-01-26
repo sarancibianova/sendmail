@@ -3,13 +3,14 @@ import smtplib, ssl
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import sys
 
 smtp_server = "tribilin.telnet.com.ar"
 port = 25  # For starttls
 sender_email = "facturacion@laboratoriosnova.com"
 receiver_email = "sarancibia@laboratoriosnova.com"  # Enter receiver address
 cc_email = ['sarancibia@laboartoriosnova.com','arancibiasergio@gmail.com']
-password = input("Ingrese Clave Servidor ")
+password = sys.argv[1]
 now = datetime.now()
 message = now.strftime("%H:%M:%S") + """\
 Subject: Vamo lo pibe
@@ -17,8 +18,8 @@ Subject: Vamo lo pibe
 This message is sent from Python."""
 msg = MIMEMultipart()
 msg['From'] = sender_email
-msg['To'] = ", ".join(cc_email)
-msg['CC'] = cc_email
+msg['To'] = receiver_email
+#msg['CC'] = cc_email
 msg['Subject'] = "Prueba de Python .."
 msg.attach(MIMEText(message, 'plain'))
 
